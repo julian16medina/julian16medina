@@ -1,0 +1,161 @@
+use_bpm 190
+maraci = "C:/Users/julian_medina/Desktop/short.wav"
+tony = "C:/Users/julian_medina/Desktop/tony.mp3"
+fry  = "C:/Users/julian_medina/Desktop/frenfry.mp3"
+qay  = "C:/Users/julian_medina/Desktop/Que te Pasa.mp3"
+
+use_synth :piano
+
+
+define :como do
+  play :G
+  sleep 0.5
+  play :A
+  sleep 0.5
+  play :B
+  sleep 0.5
+  play :C
+  sleep 0.5
+  play :B
+  sleep 0.5
+  play :A
+  sleep 0.5
+  
+  play :G
+  sleep 0.5
+  play :F
+  sleep 0.5
+  play :E
+  sleep 0.5
+  
+  play :G
+  sleep 0.5
+  play :A
+  sleep 0.5
+  play :B
+  sleep 0.5
+  play :C
+  sleep 0.5
+  play :B
+  sleep 0.5
+  play :A
+  sleep 0.5
+  
+  play :G
+  sleep 0.5
+  play :F
+  sleep 0.5
+  play :E
+  sleep 0.5
+  sleep 3
+end
+
+
+
+
+1.times do
+  como
+end
+
+live_loop :marachi do
+  2.times do
+    sample maraci
+    sleep 6
+  end
+  stop
+end
+
+
+1 .times do
+  sample tony
+  sleep 8
+end
+sleep 26.2
+use_bpm 65
+
+
+
+2.times do
+  sample :drum_cowbell
+  sleep 0.5
+  sample :drum_cowbell
+  sleep 0.25
+  sample :drum_cowbell
+  sleep 0.25
+  sample :drum_cowbell
+  sleep 0.5
+  sample :drum_cowbell
+  sleep 0.25
+  sample :drum_cowbell
+  sleep 0.25
+  sample :drum_cowbell
+  sleep 0.25
+  sample :drum_cowbell
+  sleep 0.5
+  sample :drum_cowbell
+  sleep 0.5
+  sample :drum_cowbell
+  sleep 0.75
+end
+
+
+
+
+notes = [:F2, :G2, :B2, :C3, :D3, :F3, :g3, :F3, :G3, :F3, :G3]
+times = [0.25, 0.5, 0.5, 0.5, 0.5, 0.5, 0.25, 0.25, 0.25, 0.25, 0.25]
+num = 0
+live_loop :nots do
+  10.times do
+    11.times do
+      play notes[num]
+      sleep times[num]  # Fixed the issue by removing the space between 'times' and '[num]'
+      num = num + 1
+      print (num)
+    end
+    num=0
+  end
+  stop
+end
+
+live_loop  :cow do
+  10.times do
+    sample :drum_cowbell
+    sleep 0.5
+    sample :drum_cowbell
+    sleep 0.25
+    sample :drum_cowbell
+    sleep 0.25
+    sample :drum_cowbell
+    sleep 0.5
+    sample :drum_cowbell
+    sleep 0.25
+    sample :drum_cowbell
+    sleep 0.25
+    sample :drum_cowbell
+    sleep 0.25
+    sample :drum_cowbell
+    sleep 0.5
+    sample :drum_cowbell
+    sleep 0.5
+    sample :drum_cowbell
+    sleep 0.75
+  end
+  stop
+end
+
+
+sleep 8
+live_loop :qayy  do
+  4.times do
+    sample qay, amp: 6
+    sleep 8
+  end
+  stop
+end
+
+
+
+
+
+
+
